@@ -1,0 +1,1029 @@
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GothamRoundedMedium_21022.ttf') format("ttf");
+}
+
+*, html{
+    box-sizing: border-box;
+    padding: 0px; 
+    margin: 0px;
+}
+:root{
+    --white: #ffffff;
+    --lightgrey: #c6c6c6;
+    --grey: #b2b2b2;
+    --darkgrey: #212121; 
+    --blue: #28365c;
+    --pink: #c8617b;
+    --green: #1f6770;
+    --balkjes: rgba(255, 255, 255, .8);
+    --blokken: rgba(32,103,112, .7);
+}
+body{
+    font-weight: 200;
+}
+/* Header */
+header {
+    height: 4.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: "gotham rounded";
+    font-weight: 400;
+    background-color: var(--darkgrey);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+    font-family: "gotham rounded";
+}
+a {
+    color: var(--background);
+    text-decoration: none;
+}
+#logonav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    color: white;
+}
+#navlist {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navlistitem{
+    margin-left: 1em;
+    margin-right: 1em;
+    display: none;
+    text-align: center;
+}
+#menu{
+	width: 35px;
+	height: 30px;
+	margin: 30px 0 20px 20px;
+	cursor: pointer;
+}
+.bar{
+	height: 5px;
+	width: 100%;
+	background-color: var(--white);
+	display: block;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+#bar1{
+	transform: translateY(-4px);
+}
+#bar3{
+	transform: translateY(4px);
+}
+.nav li a{
+	color: var(--darkgrey);
+	text-decoration: none;
+}
+a:hover{
+	font-weight: 800;
+}
+a:active{
+	color: var(--grey)
+}
+a:focus{
+	border: .2em solid var(--pink);
+}
+.nav li{
+	list-style: none;
+	padding: 16px 0;
+}
+.nav{
+	padding: 0;
+	margin: 0 20px;
+	transition: 0.3s ease;
+	display: none;
+}
+.menubg, #menu-bar{
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+.menubg{
+	z-index: 1;
+	width: 0;
+	height: 0;
+	margin: 30px 0 20px 20px;
+    background: radial-gradient(circle);
+    background-image: url("../images/maan.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+	border-radius: 50%;
+	transition: 0.3s ease;
+}
+#menu-bar{
+	z-index: 2;	
+}
+.changebg{
+	width: 550px;
+	height: 540px;
+	transform: translate(-60%,-30%);
+}
+.change .bar{
+	background-color: white;
+}
+.change #bar1{
+    transform: translateY(4px) rotateZ(-45deg);
+    background-color: var(--darkgrey);
+}
+.change #bar3{
+    transform: translateY(-6px) rotate(45deg);
+    background-color: var(--darkgrey);
+}
+.change #bar2{
+	opacity: 0;
+}
+.change{
+	display: block;
+}
+/*  */
+#logo{
+    height: 5em;
+    padding-top: .4em;
+}
+#dropdown {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    margin-top: 0.9em;
+    padding: 0;
+    list-style: none;
+    width: calc(100% - 50%);
+    background-color: var(--lightgrey);
+    display: none;
+}
+#dropdown li {
+    position: relative;
+    color: var(--white);
+}   
+#uitklap {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 7em;
+    width: 10em;
+    list-style: none;
+    display: none;
+    line-height: normal;
+    background-color: var(--red);
+  }
+#uitklap a{
+    color: var(--backgrounddark);
+}
+#dropdown li a {
+    text-align: left;
+    color: var(--background);
+    font-size: 14px;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+li:active> #uitklap {
+    display: block;
+}
+#uitklap:active> #uitklap {
+    display: block;
+}
+@media (min-width: 600px){
+    .phonemenu{
+        display: none;
+    }
+    .navlistitem{
+        display: block;
+    }
+    #navlist::after{
+        position: absolute;
+        content: "";
+        display: block;
+        height: 2em;
+        background-color: var(--white);
+        border-radius: 1em;
+        z-index: 5;
+    }
+    header{
+        height: 7em;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    main{
+        padding-top: 7em;
+    }
+    #logo{
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}
+@media (min-width: 800px){
+    .navlistitem{
+        font-size: 20px;
+    }
+    #logo{
+        height: 7em;
+        width: auto;
+    }
+    #logonav{
+        padding-right: 3em;
+    }
+}
+/* Main */
+.h2blok{
+    font-weight: 400;
+    margin-bottom: 2em;
+    width: calc(100% - 7em);
+    background-color: var(--balkjes);
+    padding: .2em;
+    font-size: 1.2em;
+}
+.h2blokgroot{
+    font-weight: 400;
+    margin-bottom: 2em;
+    width: calc(100% - 4em);
+    background-color: var(--balkjes);
+    padding: .2em;
+    font-size: 24px;
+}
+.artrechthoek1, .artrechthoek2, .artrechthoek3, .artrechthoek4{
+    background-color: var(--green);
+    width: 100%;
+    aspect-ratio: 1 / .5;
+    margin-bottom: 1em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.rechthoek{
+    overflow: hidden;
+    width: 100%; 
+}
+.artrechthoek1{
+    background-image: url("../images/Artisfoto.png");
+    background-size: cover;
+}
+.artrechthoek1:hover{
+    background-image: linear-gradient(rgba(201,98,122, .1),rgba(201,98,122, .5)), url("../images/Artisfoto.png");
+}
+.artrechthoek2{
+    background-image: url("../images/Honoursfoto1.png");
+    background-size: cover;
+}
+.artrechthoek2:hover{
+    background-image: linear-gradient(rgba(40,55,91, .1),rgba(40,55,91, .5)), url("../images/Honoursfoto1.png");
+}
+.artrechthoek3{
+    background-image: url("../images/Passieproject.png");
+    background-size: cover;
+}
+.artrechthoek3:hover{
+    background-image: linear-gradient(rgba(32,103,112, .1),rgba(32,103,112, .5)), url("../images/Passieproject.png");
+}
+.artrechthoek4{
+    background-image: url("../images/FEDfoto.png");
+    background-size: cover;
+}
+.artrechthoek4:hover{
+    background-image: linear-gradient(rgba(33,33,33, .1),rgba(33,33,33, .5)), url("../images/FEDfoto.png");
+}
+.artvierkant1{
+    background-image: url("../images/Kamergotchi.png");
+    background-size: cover;
+    background-color: var(--blue);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 1em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.artvierkant1:hover{
+    background-image: linear-gradient(rgba(201,98,122, .1),rgba(201,98,122, .5)), url("../images/Kamergotchi.png");
+}
+.artvierkant2{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#cirkel1, #cirkel2, #cirkel3, #cirkel4{
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: calc(100% - 55%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+#cirkel1:hover, #cirkel2:hover, #cirkel3:hover, #cirkel4:hover{
+    transform: scale(1.1);
+}
+#cirkel1:hover h4, #cirkel2:hover h4, #cirkel3:hover h4, #cirkel4:hover h4{
+    display: none;
+}
+#cirkel1:hover::before{
+    content: "Ik geef op school een cursus voor elke student om beter te worden met het ontwikkelen van snapchat lenzen";
+    font-size: .7em;
+    padding: .2em;
+}
+#cirkel2:hover::before{
+    content: "Ik help bij de eerstejaarsklassen met meerdere vakken";
+    font-size: .7em;
+    padding: .2em;
+}
+#cirkel3:hover::before{
+    content: "Ik help bij de eerstejaarsklassen met de Html/CSS vakken";
+    font-size: .7em;
+    padding: .2em;
+}
+#cirkel4:hover::before{
+    content: "Ik heb wekelijks een extra vak wat ik 1,5 jaar volg, meer hierover bij het kopje honours";
+    font-size: .7em;
+    padding: .2em;
+}
+h4{
+    font-weight: 400;
+}
+#cirkel1, #cirkel3{
+    margin-right: 1em;
+}
+#cirkel1{
+    background-color: var(--pink);
+}
+#cirkel2{
+    background-color: var(--blue);
+}
+#cirkel3{
+    background-color: var(--green);
+}
+#cirkel4{
+    background-color: var(--darkgrey);
+}
+#danique{
+    background: radial-gradient(circle);
+    background-image: url("../images/Danique2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 14em;
+    width: 14em;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--darkgrey);
+}
+#insta{
+    background: radial-gradient(circle);
+    background-image: url("../images/maan.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 14em;
+    width: 14em;
+    border: 0.5em solid var(--darkgrey);
+}
+#rozeblok{
+    background-color: var(--pink);
+    width: 100%;
+    aspect-ratio: 1 / 1.4;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 400;
+    padding: 1em
+}
+#rozeblok p{
+    width: calc(100% - 3em);
+    text-align: center;
+    font-size: 1em;
+}
+#rozeblok h2{
+    font-weight: 400;
+    font-size: 30px;
+}
+#rozeblok h3::after{
+    content: "➝";
+    margin-left: 1em;
+}
+#groeneblok{
+    background-color: var(--green);
+    width: 100%;
+    aspect-ratio: 1 / 1.4;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 400;
+    padding: 1em
+}
+#groeneblok p{
+    width: calc(100% - 3em);
+    text-align: center;
+    font-size: 1em;
+}
+#groeneblok h3::after{
+    content: "➝";
+    margin-left: 1em;
+}
+@media (min-width: 400px){
+    #rozeblok p{
+        font-size: 18px;
+    }
+    #groeneblok p{
+        font-size: 18px;
+    }
+}
+@media (min-width: 600px){
+    #kleurblok{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: no-wrap;
+    }
+    #rozeblok{
+        margin-right: 1em;
+    }
+    #rozeblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 12px;
+    }
+    #groeneblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 12px;
+    }
+    #danique {
+        height: 10em;
+        width: 10em;
+    }
+    #insta {
+        height: 10em;
+        width: 10em;
+    }
+}
+@media (min-width: 800px){
+    #vierkanten{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        justify-content: space-evenly;
+    }
+    .artvierkant1{
+        margin-right: 1em;
+    }
+    #rozeblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 16px;
+    }
+    #groeneblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 16px;
+    }
+    #danique {
+        height: 15em;
+        width: 15em;
+    }
+    #insta {
+        height: 15em;
+        width: 15em;
+    }
+}
+@media (min-width: 1000px){
+    .rechthoek{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        justify-content: space-evenly;
+    }
+    .artrechthoek1{
+        margin-right: 1em;
+    }
+    .artrechthoek3{
+        margin-right: 1em;
+    }
+    #rozeblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 22px;
+    }
+    #groeneblok p{
+        width: calc(100% - 5em);
+        margin-top: 1em;
+        font-size: 22px;
+    }
+    #danique {
+        height: 15em;
+        width: 15em;
+    }
+    #insta {
+        height: 15em;
+        width: 15em;
+    }
+}
+@media (min-width: 1100px){
+    #wrapalles{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    main{
+        margin-left: 12em;
+        margin-right: 12em;
+    }
+    #fotoblokken{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    #kleurblok{
+        display: flex;
+        flex-direction: column;
+        width: 23em;
+        order: -1;
+        margin-right: 1em;
+    }
+    #rozeblok p{
+        width: calc(100% - 2em);
+        margin-top: 1em;
+        font-size: 14px;
+    }
+    #groeneblok p{
+        width: calc(100% - 2em);
+        margin-top: 1em;
+        font-size: 14px;
+    }
+    #danique {
+        height: 12em;
+        width: 12em;
+    }
+    #insta{
+        height: 12em;
+        width: 12em;
+    }
+}
+/*  */
+/* overflow hidden*/
+footer{
+    background-color: var(--darkgrey);
+    color: var(--white);
+    padding-bottom: 1em;
+    position: relative;
+    bottom: 0;
+}
+ h5{
+    font-weight: 200;
+    font-size: 12px;
+    text-align: center;
+}
+.itemwrap {
+    overflow: hidden; /* HIDE SCROLL BAR */
+    background: var(--darkgrey);
+  }
+   
+  /* flex de item move */
+  .itemmove { 
+    display: flex; 
+    }
+  /* items in lange lijn */
+  .ritem {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    color: var(--white);
+  }
+  /* Animatie deel */
+  @keyframes tickerh {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-300%, 0, 0); }
+  }
+  .itemmove { animation: tickerh linear 40s infinite; }
+  .itemmove:hover { animation-play-state: paused; }
+
+/* Overmij */
+#overmijsect1{
+    width: 100%;
+}
+#danique2{
+    background: radial-gradient(circle);
+    background-image: url("../images/Danique2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#logo2{
+    background: radial-gradient(circle);
+    background-image: url("../images/logobackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--pink);
+    margin-bottom: 1em;
+}
+.bloktekst{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.bloktekst h2{
+    font-weight: 400;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: .5em;
+}
+#cirkels{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#omcirkel1, #omcirkel2, #omcirkel3, #omcirkel4{
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: calc(100% - 55%);
+    height: calc(100% - 55%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+#omcirkel1{
+    background-color: var(--pink);
+    margin-right: 1em;
+}
+#omcirkel2{
+    background-color: var(--blue);
+}
+#omcirkel3{
+    background-color: var(--green);
+    margin-right: 1em;
+}
+#omcirkel4{
+    background-color: var(--darkgrey);
+}
+.bloktekst a, #rozeblok a, #groeneblok a{
+    background-color: var(--darkgrey);
+    border-radius: 25px;
+    color: var(--white);
+    padding: .5em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    font-weight: 400;
+    width: 80%;
+    text-align: center;
+    margin-top: 1em;
+}
+.bloktekst h3, #rozeblok h3, #groeneblok h3{
+    font-weight: 400;
+}
+.bloktekst h3::after{
+    content: "➝";
+    margin-left: 1em;
+}
+#overmijmain section{
+    margin-bottom: 2em;
+}
+@media (min-width: 800px){
+    #danique2{
+        width: calc(100% - 52%);
+        margin-right: 2em;
+    }
+    #logo2{
+        width: calc(100% - 52%);
+        order: 2;
+    }
+    .bloktekst{
+        width: calc(100% - 52%);
+        margin-right: 2em;
+        order: 1; 
+    }
+    #overmijsect1{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        margin-bottom: 2em;
+        justify-content: center;
+        align-items: center;
+    }
+    #cirkels{
+        flex-wrap: no-wrap;
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+    #omcirkel1, #omcirkel2, #omcirkel3, #omcirkel4{
+        width: calc(100% - 78%);
+        font-size: 20px;
+    }
+}
+/* Projecten  */
+#project1, #project2, #project3, #project4, #project5, #project6{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--pink);
+    margin-bottom: 1em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#project1{
+    background-image: url("../images/artisfoto2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project2{
+    background-image: url("../images/Honoursfoto1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project3{
+    background-image: url("../images/fed2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project4{
+    background-image: url("../images/passie2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project5{
+    background-image: url("../images/Kamergotchi.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project6{
+    background-image: url("../images/Snapchatlens.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.projecten{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 600px){
+    #project1, #project2, #project3, #project4, #project5, #project6{
+        width: calc(100% - 52%);
+    } 
+    #project1, #project3, #project5{
+        margin-right: 1em;
+    }
+    .projecten{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+@media (min-width: 1000px){
+    #project1, #project2, #project3, #project4, #project5, #project6{
+        width: calc(100% - 69%);
+    } 
+    #project1, #project2, #project4, #project5{
+        margin-right: 1em;
+    }
+    .projecten{
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: calc(100% - 10%);
+    }
+}
+@media (min-width: 1100px){
+    .projecten{
+        width: 100%;
+    }
+}
+/* Contact */
+#omcirkel1 a, #omcirkel2 a, #omcirkel3 a{
+    padding: 4em;
+}
+#omcirkel1 a:focus, #omcirkel2 a:focus, #omcirkel3 a:focus{
+    padding: 4em;
+    border: none;
+}
+#contactpic{
+    background: radial-gradient(circle);
+    background-image: url("../images/contactpic.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+@media (min-width: 800px){
+    #contactpic{
+        width: calc(100% - 52%);
+        margin-right: 2em;
+    }
+}    
+/* Projecten */
+/* Artis */
+#artis1{
+    background: radial-gradient(circle);
+    background-image: url("../images/Artisfoto.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#artis2{
+    background: radial-gradient(circle);
+    background-image: url("../images/Artis2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+#honours1{
+    background: radial-gradient(circle);
+    background-image: url("../images/Honoursfoto1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#honours2{
+    background: radial-gradient(circle);
+    background-image: url("../images/honours2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+#passie1{
+    background: radial-gradient(circle);
+    background-image: url("../images/passie2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#passie2{
+    background: radial-gradient(circle);
+    background-image: url("../images/Passie1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+#fed1{
+    background: radial-gradient(circle);
+    background-image: url("../images/fed3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#fed2{
+    background: radial-gradient(circle);
+    background-image: url("../images/FED2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+#kamergotchi1{
+    background: radial-gradient(circle);
+    background-image: url("../images/kamergotchi1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#kamergotchi2{
+    background: radial-gradient(circle);
+    background-image: url("../images/kamergotchi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+#snap1{
+    background: radial-gradient(circle);
+    background-image: url("../images/Snapchatlens.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+}
+#snap2{
+    background: radial-gradient(circle);
+    background-image: url("../images/snapchat2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: .4em;
+    border: 0.5em solid var(--green);
+    margin-bottom: 1em;
+    order: 6;
+}
+
+@media (min-width: 800px){
+    #artis1, #honours1, #honours2, #artis2, #fed1, #fed2, #passie1, #passie2, #kamergotchi1, #kamergotchi2, #snap1, #snap2{
+        width: calc(100% - 52%);
+        margin-right: 2em;
+    }
+}    
